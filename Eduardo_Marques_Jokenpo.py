@@ -48,8 +48,7 @@ while (vencedor == False):
     elif (((escolha[2] == 1) and (escolha[1] == 3)) or ((escolha[2] == 2) and (escolha[1] == 1)) or ((escolha[2] == 3) and (escolha[1] == 2))): 
      print(nome[2],' ganhou essa rodada')
      rodada[2] += 1
-     rodada[0]+= 1
-
+     rodada[0] += 1
 
     if ((rodada[1] == 2) or (rodada[2] == 2)):
       vencedor = True
