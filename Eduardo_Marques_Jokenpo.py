@@ -38,15 +38,27 @@ while (vencedor == False):
      time.sleep(2)
      os.system("cls")
 
+    for i in [1, 2]: 
+     print(nome[i],' escolheu: ',jokenpo[i])
+  
+    time.sleep(2)
+    os.system("cls")
+
     if (escolha[1] == escolha[2]):
      print('Empate')
+     time.sleep(2)
+     os.system("cls")
      rodada[0]+= 1
     elif (((escolha[1] == 1) and (escolha[2] == 3)) or ((escolha[1] == 2) and (escolha[2] == 1)) or ((escolha[1] == 3) and (escolha[2] == 2))): 
      print(nome[1],' ganhou essa rodada')
+     time.sleep(2)
+     os.system("cls")
      rodada[1] += 1
      rodada[0]+= 1
     elif (((escolha[2] == 1) and (escolha[1] == 3)) or ((escolha[2] == 2) and (escolha[1] == 1)) or ((escolha[2] == 3) and (escolha[1] == 2))): 
      print(nome[2],' ganhou essa rodada')
+     time.sleep(2)
+     os.system("cls")
      rodada[2] += 1
      rodada[0] += 1
 
