@@ -1,7 +1,7 @@
 folhas = ('Alface americano', 'Alface crespa', 'Alho poró', 'Capim santo', 'Cebola', 'Cebolinha', 'Coentro', 'Couve folha', 'Chinguezay (acelga chinesa)', 'Espinafre', 'Hortelã', 'Salsinha', 'Rúcula')
 preçoFolhas = (2.50, 2.50, 2.00, 2.50, 3.00, 2.50, 2.50, 2.50, 3.00, 3.00, 2.50, 2.50, 2.50)
 
-frutas = ('Banana pacovan', 'Caná (Saquinho)', 'Laranja comum', 'Laranja mimo', 'Maracujá (1 Kg)')
+frutas = ('Banana pacovan', 'Cana (Saquinho)', 'Laranja comum', 'Laranja mimo', 'Maracujá (1 Kg)')
 preçoFrutas = (0.25, 2.00, 0.50, 0.50, 7.00)
 
 raizes = ('Batata doce (1 Kg)', 'Cará (1 Kg)', 'Cenoura', 'Jerimum (1 Kg)', 'Macaxeira (1 Kg)', 'Rabanete', 'Quiabo')
@@ -18,4 +18,47 @@ preçoLanchesST = (5.00, 5.00, 6.00, 6.00, 6.00)
 
 lanchesCT = ('Empada de falso camarão', 'Empada de antepasto de berinjela', 'Empada de Tofu C / Cebola caramelizada', 'Pãozinhos de inhame recheados')
 preçoLancheCT = (5.00, 5.00, 5.00, 5.00)
+
+carrinho = []
+carrinhoV = 0
+
+print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')
+
+def exibir(x, y, z):
+    print('-=' * 25)
+    print('CÓDIGO   PRODUTO   VAlOR')
+    print('*' * 50)
+    for i in range(x):
+        print(f'{i} - {y[i]} - R$ {z[i]}')
+    print('*' * 50)
+    print()
+    
+
+exibir(len(folhas), folhas, preçoFolhas)
+
+print('\t\tFRUTAS(Nº1)')
+exibir(len(frutas), frutas, preçoFrutas)
+
+print('    RAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
+exibir(len(raizes), raizes, preçoRaizes)
+
+print('\t\tOUTROS(Nº3)')
+exibir(len(outros), outros, preçoOutros)
+
+print('     PASTILHAS, ANTEPASTOS E GELEIAS(Nº4)')
+exibir(len(pastinhas), pastinhas, preçoPastinhas)
+
+print('\tLANCHES (sem trigo)(Nº5)')
+exibir(len(lanchesST), lanchesST, preçoLanchesST)
+
+print('\tLANCHES (com trigo)(Nº6)')
+exibir(len(lanchesCT), lanchesCT, preçoLancheCT)
+
+
+
+
+
+
+
+
 
