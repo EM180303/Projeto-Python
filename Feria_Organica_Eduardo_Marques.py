@@ -27,6 +27,7 @@ quantidade = 0
 carrinhoP = []
 continuar = True
 carrinhoQ = []
+total = 0
 
 def exibir(x, y, z):
     print('-=' * 35)
@@ -72,29 +73,42 @@ while continuar == True:
         print(f'Vai ficar R$ {valor}')
         carrinhoQ.append(quantidade)
         carrinhoV.append(valor)
-        carrinhoP.append(x[produto]) 
+        carrinhoP.append(x[produto])
+        carrinhoAtual = sum(carrinhoV)
+        print(f'Seu carrinho = {carrinhoAtual}')
+
 
     if nLista == 0:
+        print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')  
         exibir(len(folhas), folhas, preçoFolhas)
         escolhaP(folhas, preçoFolhas)
     elif nLista == 1:
+        print('\tFRUTAS(Nº1)')
         exibir(len(frutas), frutas, preçoFrutas)
         escolhaP(frutas, preçoFrutas)
     elif nLista == 2:
+        print('\tRAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
         exibir(len(raizes), raizes, preçoRaizes)
         escolhaP(raizes, preçoRaizes)
     elif nLista == 3:
+        print('\tOUTROS(Nº3)')
         exibir(len(outros), outros, preçoOutros)
         escolhaP(outros, preçoOutros)
     elif nLista == 4:
+        print('\tPASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
         exibir(len(pastinhas), pastinhas, preçoPastinhas)
         escolhaP(pastinhas, preçoPastinhas)
     elif nLista == 5:
+        print('\tLANCHES (sem trigo)(Nº5)')
         exibir(len(lanchesST), lanchesST, preçoLanchesST)
         escolhaP(lanchesST, preçoLanchesST)
     elif nLista == 6:
+        print('\tLANCHES (com trigo)(Nº6)')
         exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
         escolhaP(lanchesCT, preçoLanchesCT)
+
+    time.sleep(2)
+    os.system("cls")
     
     pergunta = str(input('Deseja continuar comprando? {S para sim / N para não} '))
     pergunta = pergunta.upper()
@@ -104,7 +118,14 @@ while continuar == True:
     elif pergunta == 'N':
         continuar = False
 
+    time.sleep(1)
+    os.system("cls")
+
+total = sum(carrinhoV)
+
 print(carrinhoQ)
 print(carrinhoV)
 print(carrinhoP)
+print(total)
+
 
