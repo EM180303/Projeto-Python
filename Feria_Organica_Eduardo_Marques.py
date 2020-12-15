@@ -1,3 +1,6 @@
+import os
+import time
+
 folhas = ('Alface americano', 'Alface crespa', 'Alho poró', 'Capim santo', 'Cebola', 'Cebolinha', 'Coentro', 'Couve folha', 'Chinguezay (acelga chinesa)', 'Espinafre', 'Hortelã', 'Salsinha', 'Rúcula')
 preçoFolhas = (2.50, 2.50, 2.00, 2.50, 3.00, 2.50, 2.50, 2.50, 3.00, 3.00, 2.50, 2.50, 2.50)
 
@@ -17,24 +20,27 @@ lanchesST = ('Quiche de macaxeira C / Alho poró', 'Quiche de macaxeira C / Toma
 preçoLanchesST = (5.00, 5.00, 6.00, 6.00, 6.00)
 
 lanchesCT = ('Empada de falso camarão', 'Empada de antepasto de berinjela', 'Empada de Tofu C / Cebola caramelizada', 'Pãozinhos de inhame recheados')
-preçoLancheCT = (5.00, 5.00, 5.00, 5.00)
+preçoLanchesCT = (5.00, 5.00, 5.00, 5.00)
 
-carrinho = []
-carrinhoV = 0
+carrinhoV = []
+quantidade = 0
+carrinho = {}
 
 print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')
 
 def exibir(x, y, z):
-    print('-=' * 25)
+    print('-=' * 35)
     print('CÓDIGO   PRODUTO   VAlOR')
-    print('*' * 50)
+    print('*' * 70)
     for i in range(x):
         print(f'{i} - {y[i]} - R$ {z[i]}')
-    print('*' * 50)
+    print('*' * 70)
     print()
+    time.sleep(1)
     
 
 exibir(len(folhas), folhas, preçoFolhas)
+
 
 print('\t\tFRUTAS(Nº1)')
 exibir(len(frutas), frutas, preçoFrutas)
@@ -45,20 +51,48 @@ exibir(len(raizes), raizes, preçoRaizes)
 print('\t\tOUTROS(Nº3)')
 exibir(len(outros), outros, preçoOutros)
 
-print('     PASTILHAS, ANTEPASTOS E GELEIAS(Nº4)')
+print('     PASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
 exibir(len(pastinhas), pastinhas, preçoPastinhas)
 
 print('\tLANCHES (sem trigo)(Nº5)')
 exibir(len(lanchesST), lanchesST, preçoLanchesST)
 
 print('\tLANCHES (com trigo)(Nº6)')
-exibir(len(lanchesCT), lanchesCT, preçoLancheCT)
+exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
 
+nLista = int(input('Digite o número da lista em que o produto que você deseja se encontra: '))
 
+time.sleep(1)
+os.system("cls")
 
+def escolhaP (x,y):
+    produto = int(input('Qual o código do produto que você deseja? '))
+    quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
+    valor = (quantidade * y[produto])
+    print(f'Vai ficar R$ {valor}')
+    carrinho[x[produto]] = quantidade
+    carrinhoV.append(valor) 
 
-
-
-
+if nLista == 0:
+    exibir(len(folhas), folhas, preçoFolhas)
+    escolhaP(folhas, preçoFolhas)
+elif nLista == 1:
+    exibir(len(frutas), frutas, preçoFrutas)
+    escolhaP(frutas, preçoFrutas)
+elif nLista == 2:
+    exibir(len(raizes), raizes, preçoRaizes)
+    escolhaP(raizes, preçoRaizes)
+elif nLista == 3:
+    exibir(len(outros), outros, preçoOutros)
+    escolhaP(outros, preçoOutros)
+elif nLista == 4:
+    exibir(len(pastinhas), pastinhas, preçoPastinhas)
+    escolhaP(pastinhas, preçoPastinhas)
+elif nLista == 5:
+    exibir(len(lanchesST), lanchesST, preçoLanchesST)
+    escolhaP(lanchesST, preçoLanchesST)
+elif nLista == 6:
+    exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
+    escolhaP(lanchesCT, preçoLanchesCT)
 
 
