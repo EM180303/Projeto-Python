@@ -25,8 +25,7 @@ preçoLanchesCT = (5.00, 5.00, 5.00, 5.00)
 carrinhoV = []
 quantidade = 0
 carrinho = {}
-
-print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')
+continuar = True
 
 def exibir(x, y, z):
     print('-=' * 35)
@@ -37,62 +36,72 @@ def exibir(x, y, z):
     print('*' * 70)
     print()
     time.sleep(1)
-    
 
-exibir(len(folhas), folhas, preçoFolhas)
-
-
-print('\t\tFRUTAS(Nº1)')
-exibir(len(frutas), frutas, preçoFrutas)
-
-print('    RAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
-exibir(len(raizes), raizes, preçoRaizes)
-
-print('\t\tOUTROS(Nº3)')
-exibir(len(outros), outros, preçoOutros)
-
-print('     PASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
-exibir(len(pastinhas), pastinhas, preçoPastinhas)
-
-print('\tLANCHES (sem trigo)(Nº5)')
-exibir(len(lanchesST), lanchesST, preçoLanchesST)
-
-print('\tLANCHES (com trigo)(Nº6)')
-exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
-
-nLista = int(input('Digite o número da lista em que o produto que você deseja se encontra: '))
-
-time.sleep(1)
-os.system("cls")
-
-def escolhaP (x,y):
-    produto = int(input('Qual o código do produto que você deseja? '))
-    quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
-    valor = (quantidade * y[produto])
-    print(f'Vai ficar R$ {valor}')
-    carrinho[x[produto]] = quantidade
-    carrinhoV.append(valor) 
-
-if nLista == 0:
+while continuar == True:   
+    print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')  
     exibir(len(folhas), folhas, preçoFolhas)
-    escolhaP(folhas, preçoFolhas)
-elif nLista == 1:
-    exibir(len(frutas), frutas, preçoFrutas)
-    escolhaP(frutas, preçoFrutas)
-elif nLista == 2:
-    exibir(len(raizes), raizes, preçoRaizes)
-    escolhaP(raizes, preçoRaizes)
-elif nLista == 3:
-    exibir(len(outros), outros, preçoOutros)
-    escolhaP(outros, preçoOutros)
-elif nLista == 4:
-    exibir(len(pastinhas), pastinhas, preçoPastinhas)
-    escolhaP(pastinhas, preçoPastinhas)
-elif nLista == 5:
-    exibir(len(lanchesST), lanchesST, preçoLanchesST)
-    escolhaP(lanchesST, preçoLanchesST)
-elif nLista == 6:
-    exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
-    escolhaP(lanchesCT, preçoLanchesCT)
 
+    print('\tFRUTAS(Nº1)')
+    exibir(len(frutas), frutas, preçoFrutas)
+
+    print('\tRAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
+    exibir(len(raizes), raizes, preçoRaizes)
+
+    print('\tOUTROS(Nº3)')
+    exibir(len(outros), outros, preçoOutros)
+
+    print('\tPASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
+    exibir(len(pastinhas), pastinhas, preçoPastinhas)
+
+    print('\tLANCHES (sem trigo)(Nº5)')
+    exibir(len(lanchesST), lanchesST, preçoLanchesST)
+
+    print('\tLANCHES (com trigo)(Nº6)')
+    exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
+
+    nLista = int(input('Digite o número da lista em que o produto que você deseja se encontra: '))
+
+    time.sleep(1)
+    os.system("cls")
+
+    def escolhaP (x,y):
+        produto = int(input('Qual o código do produto que você deseja? '))
+        quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
+        valor = (quantidade * y[produto])
+        print(f'Vai ficar R$ {valor}')
+        carrinho[x[produto]] = quantidade
+        carrinhoV.append(valor) 
+
+    if nLista == 0:
+        exibir(len(folhas), folhas, preçoFolhas)
+        escolhaP(folhas, preçoFolhas)
+    elif nLista == 1:
+        exibir(len(frutas), frutas, preçoFrutas)
+        escolhaP(frutas, preçoFrutas)
+    elif nLista == 2:
+        exibir(len(raizes), raizes, preçoRaizes)
+        escolhaP(raizes, preçoRaizes)
+    elif nLista == 3:
+        exibir(len(outros), outros, preçoOutros)
+        escolhaP(outros, preçoOutros)
+    elif nLista == 4:
+        exibir(len(pastinhas), pastinhas, preçoPastinhas)
+        escolhaP(pastinhas, preçoPastinhas)
+    elif nLista == 5:
+        exibir(len(lanchesST), lanchesST, preçoLanchesST)
+        escolhaP(lanchesST, preçoLanchesST)
+    elif nLista == 6:
+        exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
+        escolhaP(lanchesCT, preçoLanchesCT)
+    
+    pergunta = str(input('Deseja continuar comprando? {S para sim / N para não} '))
+    pergunta = pergunta.upper()
+
+    if pergunta == 'S':
+        continuar = True
+    elif pergunta == 'N':
+        continuar = False
+
+print(carrinho)
+print(carrinhoV)
 
