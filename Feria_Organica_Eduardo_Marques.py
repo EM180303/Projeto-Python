@@ -24,8 +24,9 @@ preçoLanchesCT = (5.00, 5.00, 5.00, 5.00)
 
 carrinhoV = []
 quantidade = 0
-carrinho = {}
+carrinhoP = []
 continuar = True
+carrinhoQ = []
 
 def exibir(x, y, z):
     print('-=' * 35)
@@ -69,8 +70,9 @@ while continuar == True:
         quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
         valor = (quantidade * y[produto])
         print(f'Vai ficar R$ {valor}')
-        carrinho[x[produto]] = quantidade
-        carrinhoV.append(valor) 
+        carrinhoQ.append(quantidade)
+        carrinhoV.append(valor)
+        carrinhoP.append(x[produto]) 
 
     if nLista == 0:
         exibir(len(folhas), folhas, preçoFolhas)
@@ -102,6 +104,7 @@ while continuar == True:
     elif pergunta == 'N':
         continuar = False
 
-print(carrinho)
+print(carrinhoQ)
 print(carrinhoV)
+print(carrinhoP)
 
