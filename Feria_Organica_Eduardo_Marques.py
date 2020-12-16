@@ -22,7 +22,7 @@ preçoLanchesST = (5.00, 5.00, 6.00, 6.00, 6.00)
 lanchesCT = ('Empada de falso camarão', 'Empada de antepasto de berinjela', 'Empada de Tofu C / Cebola caramelizada', 'Pãozinhos de inhame recheados')
 preçoLanchesCT = (5.00, 5.00, 5.00, 5.00)
 
-FormasPagamento = ('Dinheiro', 'Cartão de crédito', 'Cartão de débito')
+formasPagamento = ('Dinheiro', 'Cartão de crédito', 'Cartão de débito')
 
 carrinhoV = []
 quantidade = 0
@@ -109,7 +109,7 @@ while continuar == True:
         exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
         escolhaP(lanchesCT, preçoLanchesCT)
 
-    time.sleep(2)
+    time.sleep(3)
     os.system("cls")
     
     pergunta = str(input('Deseja continuar comprando? {S para sim / N para não} '))
@@ -119,25 +119,37 @@ while continuar == True:
         continuar = True
     elif pergunta == 'N':
         continuar = False
+        print('Compra encerrada')
 
-    print('Compra encerrada')
     time.sleep(2)
     os.system("cls")
 
 nome = str(input('Qual o seu nome? '))
 endereço = str(input('Qual seu endereço? '))
 for i in range(3):
-    print(f'{i} - Se for pagar em {FormasPagamento[i]}')
+    print(f'{i} - Se for pagar em {formasPagamento[i]}')
 
-pagamento = int(input('Qual forma de pagamento? {0/1/2}'))
+pagamento = int(input('Qual forma de pagamento? {0/1/2} '))
+
+print('Obrigado pela preferência, volte sempre!')
 
 total = sum(carrinhoV)
+
+with  open('Comprovante.txt', 'x', encoding = 'utf8') as arquivo:
+    arquivo.write(f'Nome: {nome}\n')
+    arquivo.write(f'Endereço: {endereço}\n')
+    arquivo.write(f'Forma de pagamento: {formasPagamento[pagamento]}\n')
+    arquivo.write('Nº - PRODUTO - QUANTIDADE - VALOR\n')
+    arquivo.write(50 * '-=')
+    arquivo.write('\n')
+    for i in range(len(carrinhoP)):
+        arquivo.write(f'{i+1} - {carrinhoP[i]} - {carrinhoQ[i]} - R$ {carrinhoV[i]}\n')
+    arquivo.write(f'Total: R$ {total}')
 
 print(carrinhoQ)
 print(carrinhoV)
 print(carrinhoP)
 print(total)
-
 print(nome)
 print(endereço)
-print(FormasPagamento[pagamento ])
+print(formasPagamento[pagamento ])
