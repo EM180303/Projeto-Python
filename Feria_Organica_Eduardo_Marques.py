@@ -22,6 +22,8 @@ preçoLanchesST = (5.00, 5.00, 6.00, 6.00, 6.00)
 lanchesCT = ('Empada de falso camarão', 'Empada de antepasto de berinjela', 'Empada de Tofu C / Cebola caramelizada', 'Pãozinhos de inhame recheados')
 preçoLanchesCT = (5.00, 5.00, 5.00, 5.00)
 
+FormasPagamento = ('Dinheiro', 'Cartão de crédito', 'Cartão de débito')
+
 carrinhoV = []
 quantidade = 0
 carrinhoP = []
@@ -118,8 +120,16 @@ while continuar == True:
     elif pergunta == 'N':
         continuar = False
 
-    time.sleep(1)
+    print('Compra encerrada')
+    time.sleep(2)
     os.system("cls")
+
+nome = str(input('Qual o seu nome? '))
+endereço = str(input('Qual seu endereço? '))
+for i in range(3):
+    print(f'{i} - Se for pagar em {FormasPagamento[i]}')
+
+pagamento = int(input('Qual forma de pagamento? {0/1/2}'))
 
 total = sum(carrinhoV)
 
@@ -128,4 +138,6 @@ print(carrinhoV)
 print(carrinhoP)
 print(total)
 
-
+print(nome)
+print(endereço)
+print(FormasPagamento[pagamento ])
