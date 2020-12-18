@@ -30,6 +30,7 @@ carrinhoP = []
 continuar = True
 carrinhoQ = []
 total = 0
+verificador = False
 
 def exibir(x, y, z):
     print('-=' * 35)
@@ -41,73 +42,87 @@ def exibir(x, y, z):
     print()
     time.sleep(1)
 
-while continuar == True:   
-    print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')  
-    exibir(len(folhas), folhas, preçoFolhas)
+while continuar == True:  
+    verificador = False
+    while verificador == False:
 
-    print('\tFRUTAS(Nº1)')
-    exibir(len(frutas), frutas, preçoFrutas)
-
-    print('\tRAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
-    exibir(len(raizes), raizes, preçoRaizes)
-
-    print('\tOUTROS(Nº3)')
-    exibir(len(outros), outros, preçoOutros)
-
-    print('\tPASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
-    exibir(len(pastinhas), pastinhas, preçoPastinhas)
-
-    print('\tLANCHES (sem trigo)(Nº5)')
-    exibir(len(lanchesST), lanchesST, preçoLanchesST)
-
-    print('\tLANCHES (com trigo)(Nº6)')
-    exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
-
-    nLista = int(input('Digite o número da lista em que o produto que você deseja se encontra: '))
-
-    time.sleep(1)
-    os.system("cls")
-
-    def escolhaP (x,y):
-        produto = int(input('Qual o código do produto que você deseja? '))
-        quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
-        valor = (quantidade * y[produto])
-        print(f'Vai ficar R$ {valor}')
-        carrinhoQ.append(quantidade)
-        carrinhoV.append(valor)
-        carrinhoP.append(x[produto])
-        carrinhoAtual = sum(carrinhoV)
-        print(f'Seu carrinho = {carrinhoAtual}')
-
-
-    if nLista == 0:
         print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')  
         exibir(len(folhas), folhas, preçoFolhas)
-        escolhaP(folhas, preçoFolhas)
-    elif nLista == 1:
+
         print('\tFRUTAS(Nº1)')
         exibir(len(frutas), frutas, preçoFrutas)
-        escolhaP(frutas, preçoFrutas)
-    elif nLista == 2:
+
         print('\tRAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
         exibir(len(raizes), raizes, preçoRaizes)
-        escolhaP(raizes, preçoRaizes)
-    elif nLista == 3:
+
         print('\tOUTROS(Nº3)')
         exibir(len(outros), outros, preçoOutros)
-        escolhaP(outros, preçoOutros)
-    elif nLista == 4:
+
         print('\tPASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
         exibir(len(pastinhas), pastinhas, preçoPastinhas)
-        escolhaP(pastinhas, preçoPastinhas)
-    elif nLista == 5:
+
         print('\tLANCHES (sem trigo)(Nº5)')
         exibir(len(lanchesST), lanchesST, preçoLanchesST)
-        escolhaP(lanchesST, preçoLanchesST)
-    elif nLista == 6:
+
         print('\tLANCHES (com trigo)(Nº6)')
         exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
-        escolhaP(lanchesCT, preçoLanchesCT)
+
+        nLista = int(input('Digite o número da lista em que o produto que você deseja se encontra: '))
+
+        time.sleep(1)
+        os.system("cls")
+
+        def escolhaP (x,y):
+            produto = int(input('Qual o código do produto que você deseja? '))
+            quantidade = int(input(f'Quantos(a) {x[produto]} você deseja? '))
+            valor = (quantidade * y[produto])
+            print(f'Vai ficar R$ {valor}')
+            carrinhoQ.append(quantidade)
+            carrinhoV.append(valor)
+            carrinhoP.append(x[produto])
+            carrinhoAtual = sum(carrinhoV)
+            print(f'Seu carrinho = {carrinhoAtual}')
+
+        if nLista == 0:
+            print('\tFOLHAS E HORTALIÇAS / O MOLHO(Nº0)')  
+            exibir(len(folhas), folhas, preçoFolhas)
+            escolhaP(folhas, preçoFolhas)
+            verificador = True
+        elif nLista == 1:
+            print('\tFRUTAS(Nº1)')
+            exibir(len(frutas), frutas, preçoFrutas)
+            escolhaP(frutas, preçoFrutas)
+            verificador = True
+        elif nLista == 2:
+            print('\tRAÍZES, TUBÉRCULOS, LEGUMES E AFINS(Nº2)')
+            exibir(len(raizes), raizes, preçoRaizes)
+            escolhaP(raizes, preçoRaizes)
+            verificador = True
+        elif nLista == 3:
+            print('\tOUTROS(Nº3)')
+            exibir(len(outros), outros, preçoOutros)
+            escolhaP(outros, preçoOutros)
+            verificador = True
+        elif nLista == 4:
+            print('\tPASTINHAS, ANTEPASTOS E GELEIAS(Nº4)')
+            exibir(len(pastinhas), pastinhas, preçoPastinhas)
+            escolhaP(pastinhas, preçoPastinhas)
+            verificador = True
+        elif nLista == 5:
+            print('\tLANCHES (sem trigo)(Nº5)')
+            exibir(len(lanchesST), lanchesST, preçoLanchesST)
+            escolhaP(lanchesST, preçoLanchesST)
+            verificador = True
+        elif nLista == 6:
+            print('\tLANCHES (com trigo)(Nº6)')
+            exibir(len(lanchesCT), lanchesCT, preçoLanchesCT)
+            escolhaP(lanchesCT, preçoLanchesCT)
+            verificador = True
+        else:
+            print('Lista não encontrada')
+            time.sleep(2)
+            os.system("cls")
+            verificador = False
 
     time.sleep(3)
     os.system("cls")
