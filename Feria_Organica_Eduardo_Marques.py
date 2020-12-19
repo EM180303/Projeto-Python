@@ -124,7 +124,7 @@ while continuar == True:
             os.system("cls")
             verificador = False
 
-    time.sleep(3)
+    time.sleep(2)
     os.system("cls")
     
     pergunta = str(input('Deseja continuar comprando? {S para sim / N para não} '))
